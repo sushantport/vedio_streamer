@@ -11,6 +11,12 @@ def index():
     return render_template('rtsp.html')
 
 
+@app.route('/home')
+def home():
+    """Home page."""
+    return render_template('rtsp1.html')
+
+
 @socketio.on('connect', namespace='/web')
 def connect_web():
     print('[INFO] Web client connected: {}'.format(request.sid))
@@ -38,4 +44,4 @@ def handle_cv_message(message):
 
 if __name__ == "__main__":
     print('[INFO] Starting server at http://localhost:5001')
-    socketio.run(app=app, port=5000,threaded=True)
+    socketio.run(app=app, port=5000)

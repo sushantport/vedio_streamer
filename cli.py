@@ -4,6 +4,8 @@ import socketio
 import cv2
 import base64
 
+from cv import *
+
 
 def _convert_image_to_jpeg(image):
         # Encode frame as jpeg
@@ -41,12 +43,12 @@ try:
         #get all opencv frame
         # Capture frame-by-frame
         ret, frame = cap.read()
-        
+        frame=convert_gray_scale(frame)
         msg={'key':1,
              'dst':10}
         
         data_tranfer(frame,msg)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(0) & 0xFF == ord('q'):
             break
     cap.release()
     cv2.destroyAllWindows()
