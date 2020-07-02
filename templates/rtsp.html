@@ -128,7 +128,7 @@
     }
       try{
 
-        ///connect to server2web endpoint 
+        ///connect to server2web endpoint
         socket.on('server2web', function(msg){
           if (msg==''){
                 console.log('After connect', msg);
@@ -137,6 +137,7 @@
           {
             image_elem.src = msg.image
             text_elem.innerHTML = msg.text;
+            console.log(msg.text)
           }
           });}
       catch{

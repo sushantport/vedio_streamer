@@ -42,6 +42,7 @@ def handle_cv_message(message):
     socketio.emit('server2web', message, namespace='/web')
 
 
+
 if __name__ == "__main__":
     print('[INFO] Starting server at http://localhost:5001')
     socketio.run(app=app, port=5000)
